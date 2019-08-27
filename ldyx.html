@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="js/jquery.min.js"></script>   
+    <script src="js/clipboard.min.js"></script>  
+    <title>良钓优选</title>
+    <style>
+        html,body{
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .divBack, .imgBack{
+            width: 100%;
+        }
+        .divBack{
+            display: inline-block;
+        }
+        .wx{
+            position: absolute;
+            top: 20px;
+            left: 39%
+        }
+        #copyButton{
+            position: absolute;
+            top: 20px;
+            left: 60%;
+            width: 65px;
+            padding: 0;
+            background-color: #4b92fd;
+            color: #FFF;
+            border: 1px solid #4b92fd;
+            border-radius: 5px;
+            box-shadow: 2px 2px 2px #aaaaaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="divBack">
+        <img class="imgBack" src="back.jpg" />
+    </div>
+    <div class="wx">
+        dfvip066
+    </div>
+    <button id="copyButton" >点击复制</button>
+</body>
+<script>
+    $(function(){
+        var clipboard = new Clipboard('#copyButton',{
+            text: function(trigger) {
+                return 'dfvip066';
+            }
+        });    
+        clipboard.on('success', function(e) {
+            alert("微信号复制成功",1500); 
+            e.clearSelection();    
+            console.log(e.clearSelection);    
+        });
+    });
+</script>
+</html>
